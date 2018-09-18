@@ -11,6 +11,6 @@ public class webController {
 
     @RequestMapping("/")
     String home() {
-        return "Hello World";
+        return "Hello Boot";
     }
 }

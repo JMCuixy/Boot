@@ -1,7 +1,24 @@
 spring:
+  # Thymeleaf 将缓存模板以避免重复解析 XML 源文件,禁用 Thymeleaf 缓存
   thymeleaf:
-  #Thymeleaf 将缓存模板以避免重复解析 XML 源文件
     cache: false
+  # 如果使用 freemarker，禁用缓存
+  freemarker:
+    cache: false
+  # 如果使用 groovy，禁用缓存
+  groovy:
+    template:
+      cache: false
   devtools:
     restart:
-      exclude: resources/**
+      # devtools 排除不需要检测的资源和增加额外需要监测的资源
+      exclude: application.yml
+      additional-paths: src/main/webapp
+      # 是否重启，如果设置为false禁用，依旧会初始化重启类加载器，但它不会监控文件变化
+      enabled: true
+      # 触发器文件，只有在修改该文件的时候，才能触发工程重启
+      #trigger-file: trigger-file
+    livereload:
+      # 内嵌的 LiveReload 服务器，可以在资源改变时，触发浏览器更新，禁用设置为false
+      # 插件地址 https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
+      enabled: true

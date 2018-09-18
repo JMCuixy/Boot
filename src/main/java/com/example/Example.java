@@ -13,13 +13,15 @@ import org.springframework.context.annotation.Configuration;
  * 指定basePackage属性。另外，@ComponentScan 可以自动收集所有的 Spring
  * 组件，包括 @Configuration 类。
  */
-// 根据添加的jar依赖猜测你想如何配置Spring
 @EnableAutoConfiguration
 @Configuration
 @ComponentScan
 public class Example {
 
     public static void main(String[] args) {
+        // 是否开启重启支持
+        System.setProperty("spring.devtools.restart.enabled", "true");
+
         // SpringApplication 将引导我们的应用，启动 Spring
         // 我们需要将Example.class作为参数传递给run方法，以此告诉SpringApplication谁是主要的Spring组件
         SpringApplication.run(Example.class, args);
