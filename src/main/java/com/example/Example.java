@@ -1,7 +1,13 @@
 package com.example;
 
+import com.example.config.ApplicationArgumentsBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
+import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,9 +28,21 @@ public class Example {
         // 是否开启重启支持
         System.setProperty("spring.devtools.restart.enabled", "true");
 
-        // SpringApplication 将引导我们的应用，启动 Spring
+        // 1、SpringApplication 将尝试为你创建正确类型的 ApplicationContext，默认情况下，根据你开发的是否为web应用决定使用AnnotationConfigApplicationContext或AnnotationConfigEmbeddedWebApplicationContext。
+        // 2、手动调用setWebApplicationType() 指定为 web 应用
         // 我们需要将Example.class作为参数传递给run方法，以此告诉SpringApplication谁是主要的Spring组件
-        SpringApplication.run(Example.class, args);
+        SpringApplication app = new SpringApplication(Example.class);
+        app.setBannerMode(Banner.Mode.LOG);
+        app.setWebApplicationType(WebApplicationType.SERVLET);
+        ConfigurableApplicationContext run = app.run(args);
+
+        Runtime.getRuntime().addShutdownHook(new Thread(){
+            @Override
+            public void run() {
+                SpringApplication.exit(run, (ExitCodeGenerator) run.getBean("applicationArgumentsBean"));
+            }
+        });
+
     }
 
 }
