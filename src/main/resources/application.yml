@@ -9,6 +9,24 @@ spring:
   groovy:
     template:
       cache: false
+  datasource:
+    url: jdbc:mysql://192.168.1.199/yycx_config?useSSL=true&amp;useUnicode=true&amp&characterEncoding=utf-8&amp;allowMultiQueries=true&amp;zeroDateTimeBehavior=convertToNull&amp;serverTimezone=GMT%2b8
+    username: root
+    password: yycx!Mysql123
+    driverClassName: com.mysql.jdbc.Driver
+    initialSize: 10
+    minIdle: 10
+    maxActive: 20
+    maxWait: 60
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 'x' FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat
   devtools:
     restart:
       # devtools 排除不需要检测的资源和增加额外需要监测的资源
@@ -27,5 +45,5 @@ logging:
   path: D:\var\log
   level:
     root: info
-    org.springframework.web: debug
+    org.springframework.web: error
 
