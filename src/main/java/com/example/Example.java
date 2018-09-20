@@ -25,14 +25,15 @@ import org.springframework.context.annotation.Configuration;
 public class Example {
 
     public static void main(String[] args) {
-        // 是否开启重启支持
+        // 是否开启重启支持（需要强制关闭自重启时使用）
         System.setProperty("spring.devtools.restart.enabled", "true");
 
         // 1、SpringApplication 将尝试为你创建正确类型的 ApplicationContext，默认情况下，根据你开发的是否为web应用决定使用AnnotationConfigApplicationContext或AnnotationConfigEmbeddedWebApplicationContext。
-        // 2、手动调用setWebApplicationType() 指定为 web 应用
         // 我们需要将Example.class作为参数传递给run方法，以此告诉SpringApplication谁是主要的Spring组件
         SpringApplication app = new SpringApplication(Example.class);
+        // 设置打印 Banner 的方式
         app.setBannerMode(Banner.Mode.LOG);
+        // 2、手动调用setWebApplicationType() 指定为 web 应用，可不配置
         app.setWebApplicationType(WebApplicationType.SERVLET);
         ConfigurableApplicationContext run = app.run(args);
 

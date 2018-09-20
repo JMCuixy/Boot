@@ -22,3 +22,10 @@ spring:
       # 内嵌的 LiveReload 服务器，可以在资源改变时，触发浏览器更新，禁用设置为false
       # 插件地址 https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
       enabled: true
+# springBoot 默认的日志信息会写在控制台，不会写入日志文件，需要设置 path（spring.log）或 file（自定义文件路径 /var/log/my.log）
+logging:
+  path: D:\var\log
+  level:
+    root: info
+    org.springframework.web: debug
+
