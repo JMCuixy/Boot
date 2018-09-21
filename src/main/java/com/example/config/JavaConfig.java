@@ -43,14 +43,15 @@ public class JavaConfig {
      *
      * @return
      */
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer properties() {
+/*    @Bean
+    public PropertySourcesPlaceholderConfigurer properties() {
         PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
         YamlPropertiesFactoryBean yaml = new YamlPropertiesFactoryBean();
-        yaml.setResources(new ClassPathResource("my.yml"));
+        yaml.setResources(new ClassPathResource("file/my.yml"));
         configurer.setProperties(yaml.getObject());
         return configurer;
-    }
+    }*/
+
 
     @Bean
     @Primary

@@ -1,3 +1,5 @@
+server:
+  port: 8080
 spring:
   # Thymeleaf 将缓存模板以避免重复解析 XML 源文件,禁用 Thymeleaf 缓存
   thymeleaf:
@@ -45,5 +47,5 @@ logging:
   path: D:\var\log
   level:
     root: info
-    org.springframework.web: error
+    org.springframework.web: info
 

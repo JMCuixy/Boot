@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 1、实现 CommandLineRunner 或者 ApplicationRunner 接口可以在 SpringApplication 启动后，run() 方法运行前执行一些特殊的代码
  * 2、实现 ExitCodeGenerator 接口可以在 Application 退出后返回特殊的特征码，用于 SpringApplication.exit() 时使用
- * 3、实现 DisposableBean 接口，用于在 SpringApplication 后实现自己的一些逻辑，或者使用 @PreDestroy 注解。
+ * 3、实现 DisposableBean 接口，用于在 SpringApplication 退出后（SpringApplication.exit()）实现自己的一些逻辑，或者使用 @PreDestroy 注解。
  */
 @Component
 public class ApplicationArgumentsBean implements CommandLineRunner, ApplicationRunner, ExitCodeGenerator, DisposableBean {
