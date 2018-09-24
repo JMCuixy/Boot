@@ -1,15 +1,14 @@
 package com.example.web;
 
-import com.example.model.User;
+import com.example.entity.User;
+import com.example.service.UserSercice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpRequest;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by XiuYin.Cui on 2018/9/15.
@@ -18,6 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/user")
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
+    @Autowired
+    private UserSercice userSercice;
 
     @RequestMapping("/index")
     public String home() {
@@ -35,6 +37,16 @@ public class UserController {
         user.setName("张三");
         user.setSex(1);
         return user;
+    }
+
+    @RequestMapping(value = "/getUserByUuid", method = RequestMethod.GET)
+    public User getUserByUuid(@RequestParam String uuid, HttpServletRequest request) {
+        return userSercice.getUserByUuid(uuid);
+    }
+
+    @RequestMapping(value = "/listUser", method = RequestMethod.GET)
+    public List<User> listUser() {
+        return userSercice.listUser();
     }
 
 }

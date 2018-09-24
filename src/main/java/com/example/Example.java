@@ -2,6 +2,8 @@ package com.example;
 
 import com.example.config.ApplicationArgumentsBean;
 import com.example.config.JavaConfig;
+import com.example.mapper.UserMapper;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.ExitCodeGenerator;
@@ -26,6 +28,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan
 @ServletComponentScan
+@MapperScan("com.example.mapper")
 @EnableConfigurationProperties(JavaConfig.class)
 public class Example {
 

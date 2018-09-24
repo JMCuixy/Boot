@@ -26,7 +26,7 @@ spring:
     template:
       cache: false
   datasource:
-    url: jdbc:mysql://192.168.1.199/yycx_config?useSSL=true&amp;useUnicode=true&amp&characterEncoding=utf-8&amp;allowMultiQueries=true&amp;zeroDateTimeBehavior=convertToNull&amp;serverTimezone=GMT%2b8
+    url: jdbc:mysql://192.168.1.199/yycx_marge?useSSL=true&amp;useUnicode=true&amp&characterEncoding=utf-8&amp;allowMultiQueries=true&amp;zeroDateTimeBehavior=convertToNull&amp;serverTimezone=GMT%2b8
     username: root
     password: yycx!Mysql123
     driverClassName: com.mysql.jdbc.Driver
@@ -56,6 +56,13 @@ spring:
       # 内嵌的 LiveReload 服务器，可以在资源改变时，触发浏览器更新，禁用设置为false
       # 插件地址 https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
       enabled: true
+mybatis:
+  typeAliasesPackage: com.example.entity
+  mapperLocations: classpath:com/example/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: null
+    call-setters-on-nulls: true
 # springBoot 默认的日志信息会写在控制台，不会写入日志文件，需要设置 path（spring.log）或 file（自定义文件路径 /var/log/my.log）
 logging:
   path: D:\var\log
