@@ -1,6 +1,20 @@
 server:
-  port: 8080
+  port: 8080 # 监听端口
+  servlet:
+    session:
+      timeout: 30m # session 超时时间
 spring:
+  # 默认的静态资源路径 "classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/"
+  resources:
+    static-locations: classpath:/public/
+  mvc:
+    favicon:
+      enabled: false
+    # 静态资源的映射路径，默认是 /**
+    static-path-pattern: /public/**
+    view:
+      prefix: /WEB-INF/pages/
+      suffix: .jsp
   # Thymeleaf 将缓存模板以避免重复解析 XML 源文件,禁用 Thymeleaf 缓存
   thymeleaf:
     cache: false
