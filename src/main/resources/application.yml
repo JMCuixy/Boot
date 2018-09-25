@@ -47,6 +47,13 @@ spring:
     host: 127.0.0.1
     port: 6379
     password: foobared
+  data:
+    mongodb:
+      host: 192.168.30.12
+      port: 26016
+      username: mongodba
+      password: mongo!@#
+      database: xkx
   devtools:
     restart:
       # devtools 排除不需要检测的资源和增加额外需要监测的资源
