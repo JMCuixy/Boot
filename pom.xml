@@ -70,6 +70,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
+        <!-- mybatis的分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.7</version>
+        </dependency>
 
         <!--
              1、在运行一个完整的，打包过的应用时（Java -jar），会禁用开发者工具。

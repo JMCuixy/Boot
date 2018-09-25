@@ -63,10 +63,13 @@ mybatis:
     map-underscore-to-camel-case: true
     jdbc-type-for-null: null
     call-setters-on-nulls: true
+pagehelper:
+  offset-as-page-num: true
+  row-bounds-with-count: true
+  reasonable: true
 # springBoot 默认的日志信息会写在控制台，不会写入日志文件，需要设置 path（spring.log）或 file（自定义文件路径 /var/log/my.log）
 logging:
   path: D:\var\log
   level:
     root: info
     org.springframework.web: info
-

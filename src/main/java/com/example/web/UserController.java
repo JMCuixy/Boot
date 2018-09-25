@@ -2,6 +2,7 @@ package com.example.web;
 
 import com.example.entity.User;
 import com.example.service.UserSercice;
+import com.github.pagehelper.PageHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,10 @@ public class UserController {
 
     @RequestMapping(value = "/listUser", method = RequestMethod.GET)
     public List<User> listUser() {
-        return userSercice.listUser();
+        //假设是前端传入的分页参数
+        int currentPage = 1;
+        int pageSize = 10;
+        return userSercice.listUser(currentPage, pageSize);
     }
 
 }
