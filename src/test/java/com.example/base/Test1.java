@@ -1,7 +1,8 @@
-package com.example;
+package com.example.base;
 
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.example.Example;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -40,7 +41,7 @@ import java.util.Properties;
   */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Example.class, properties = {"MAVEN_HOME:MAVEN_HOME2018"})
-@TestPropertySource(locations = "classpath:resource.properties")
+@TestPropertySource(locations = "classpath:public/file/resource.properties")
 public class Test1 {
 
     private static final Logger logger = LoggerFactory.getLogger(Test1.class);
@@ -86,7 +87,7 @@ public class Test1 {
     @Test
     public void test3() {
         YamlPropertiesFactoryBean yml = new YamlPropertiesFactoryBean();
-        yml.setResources(new ClassPathResource("my.yml"));
+        yml.setResources(new ClassPathResource("public/file/my.yml"));
         Properties properties = yml.getObject();
         Iterator<Map.Entry<Object, Object>> iterator = properties.entrySet().iterator();
         while (iterator.hasNext()) {
@@ -97,7 +98,7 @@ public class Test1 {
         logger.info("--------华丽的分割线------------");
 
         YamlMapFactoryBean yamlMapFactoryBean = new YamlMapFactoryBean();
-        yamlMapFactoryBean.setResources(new ClassPathResource("my.yml"));
+        yamlMapFactoryBean.setResources(new ClassPathResource("public/file/my.yml"));
         Map<String, Object> map = yamlMapFactoryBean.getObject();
         Iterator<Map.Entry<String, Object>> it = map.entrySet().iterator();
         while (it.hasNext()) {

@@ -47,7 +47,7 @@ public class JavaConfig {
     public PropertySourcesPlaceholderConfigurer properties() {
         PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
         YamlPropertiesFactoryBean yaml = new YamlPropertiesFactoryBean();
-        yaml.setResources(new ClassPathResource("file/my.yml"));
+        yaml.setResources(new ClassPathResource("public/file/my.yml"));
         configurer.setProperties(yaml.getObject());
         return configurer;
     }*/
