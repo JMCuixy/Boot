@@ -7,6 +7,10 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
+/**
+ * 应用场景：不对对象的行为或属性做改变。过滤掉非法url，设置统一字符集，移除非法字符...
+ * Filter —— > listener ——> Intercepter
+ */
 @WebFilter(filterName = "MyFilter", urlPatterns = "/user/*")
 public class MyFilter implements Filter {
 

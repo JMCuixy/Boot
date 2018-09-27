@@ -8,6 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 应用场景：可以改变对象的行为或属性,行为干预，比如权限控制等
+ */
 public class UserIntercepter implements HandlerInterceptor {
 
     private static final Logger logger = LoggerFactory.getLogger(UserIntercepter.class);
