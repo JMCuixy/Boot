@@ -15,6 +15,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * 1、建议将应用的main类放在其他类所在包的顶层（root package），并
@@ -27,9 +28,14 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 @Configuration
 @ComponentScan
+// 过滤器和监听器
 @ServletComponentScan
+// MyBatis配置文件
 @MapperScan("com.example.mapper")
+// 使@ConfigurationProperties生效
 @EnableConfigurationProperties(JavaConfig.class)
+// 开启定时任务
+@EnableScheduling
 public class Example {
 
     public static void main(String[] args) {

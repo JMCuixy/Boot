@@ -1,12 +1,14 @@
 package com.example.config;
 
+import com.example.web.intercepter.UserIntercepter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class WebConfig {
+public class WebConfig implements WebMvcConfigurer {
 
     /**
      * -- 配置跨域资源共享 --
@@ -23,5 +25,11 @@ public class WebConfig {
                 registry.addMapping("/user/**");
             }
         };
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new UserIntercepter()).addPathPatterns("/user/*/**");
+        WebMvcConfigurer.super.addInterceptors(registry);
     }
 }
