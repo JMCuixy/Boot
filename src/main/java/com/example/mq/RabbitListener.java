@@ -7,7 +7,10 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
-@Component
+/**
+ * 这里注释掉 RabbitMQ 的配置，因为两个消息代理（ActiveMQ）在一起，冲突和bug很多。
+ */
+//@Component
 public class RabbitListener {
 
     private static final Logger logger = LoggerFactory.getLogger(RabbitListener.class);

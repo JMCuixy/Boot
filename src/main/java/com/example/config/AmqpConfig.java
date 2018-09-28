@@ -8,7 +8,10 @@ import org.springframework.context.annotation.Configuration;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+/**
+ * 这里注释掉 RabbitMQ 的配置，因为两个消息代理（ActiveMQ）在一起，冲突和bug很多。
+ */
+//@Configuration
 public class AmqpConfig {
 
     /**

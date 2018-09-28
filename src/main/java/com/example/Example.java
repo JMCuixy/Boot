@@ -12,6 +12,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jms.annotation.EnableJms;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -33,6 +34,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableConfigurationProperties(JavaConfig.class)
 // 开启定时任务
 @EnableScheduling
+// 启用JMS（ActiveMQ）
+@EnableJms
 public class Example {
 
     public static void main(String[] args) {
