@@ -14,6 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 /**
  * 1、建议将应用的main类放在其他类所在包的顶层（root package），并
@@ -36,6 +37,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 // 启用JMS（ActiveMQ）
 @EnableJms
+// 启用Spring Session Redis
+@EnableRedisHttpSession
 public class Example {
 
     public static void main(String[] args) {
