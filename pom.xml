@@ -121,6 +121,18 @@
             <version>2.9.2</version>
         </dependency>
 
+        <!--9、发送邮件-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+        <!--10、WebSocket-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
         <!--
              1、在运行一个完整的，打包过的应用时（Java -jar），会禁用开发者工具。
              2、防止 devtools 传递到项目中的其他模块，需要设置依赖级别 optional
