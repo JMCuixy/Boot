@@ -28,6 +28,7 @@ public class EmailConfig {
     }
 
 
+
     public void setHost(String host) {
         this.host = host;
     }
