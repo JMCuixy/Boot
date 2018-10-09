@@ -32,7 +32,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 // MyBatis配置文件
 @MapperScan("com.example.mapper")
 // 使@ConfigurationProperties生效
-@EnableConfigurationProperties(JavaConfig.class)
+@EnableConfigurationProperties
 // 开启定时任务
 @EnableScheduling
 // 启用JMS（ActiveMQ）

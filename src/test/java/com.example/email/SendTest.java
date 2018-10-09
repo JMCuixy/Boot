@@ -1,7 +1,6 @@
 package com.example.email;
 
 import com.example.Example;
-import org.apache.velocity.app.VelocityEngine;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,6 @@ public class SendTest {
 
     @Autowired
     private JavaMailSender javaMailSender;
-
-    private VelocityEngine velocityEngine;
 
 
     @Test
