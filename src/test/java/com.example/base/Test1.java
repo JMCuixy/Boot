@@ -60,6 +60,9 @@ public class Test1 {
     @Value("${server.address}")
     private String serverAddress;
 
+    @Value("${app.java.version}")
+    private String appJavaVersion;
+
     @Autowired
     private DataSource dataSource;
 
@@ -107,4 +110,8 @@ public class Test1 {
         }
     }
 
+    @Test
+    public void test4() {
+        System.out.println(appJavaVersion);
+    }
 }

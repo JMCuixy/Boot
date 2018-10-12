@@ -1,2 +1,5 @@
 server:
   address: 192.168.1.100
+app:
+  java:
+    version: @java.version@
