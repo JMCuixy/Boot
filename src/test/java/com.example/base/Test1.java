@@ -60,9 +60,6 @@ public class Test1 {
     @Value("${server.address}")
     private String serverAddress;
 
-    @Value("${app.java.version}")
-    private String appJavaVersion;
-
     @Autowired
     private DataSource dataSource;
 
@@ -108,10 +105,5 @@ public class Test1 {
             Map.Entry<String, Object> entry = it.next();
             logger.info("YamlPropertiesFactoryBean 读取的配置文件内容是:{}-{}", entry.getKey(), entry.getValue());
         }
-    }
-
-    @Test
-    public void test4() {
-        System.out.println(appJavaVersion);
     }
 }

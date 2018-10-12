@@ -1,9 +1,27 @@
+spring:
+  profiles:
+    active: development
+
+---
 server:
-  port: 8080 # 监听端口
+  port: 8080 # 监听端口,-1 表示完全关闭 HTTP 端点，0 表示随机获取一个未使用的端口，
   servlet:
     session:
       timeout: 30m # session 超时时间
+  tomcat:
+    max-threads: 800
+    uri-encoding: UTF-8
+  # 配置 SSL 认证
+ # ssl:
+ #   key-store:
+ #   key-store-password:
+ #   key-password:
 spring:
+  profiles: development
+  # Spring 的配置定义
+  config:
+    name: application
+    location: classpath:/,classpath:/config/,file:./,file:./config/
   # 默认的静态资源路径 "classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/"
   resources:
     static-locations: classpath:/public/
@@ -109,3 +127,12 @@ logging:
   level:
     root: info
     org.springframework.web: info
+
+
+
+# 一个YAML文件实际上是一系列以---线分割的文档，每个文档都被单独解析为一个平坦的Map。
+---
+server:
+     port: 8888
+spring:
+  profiles: test
