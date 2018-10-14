@@ -4,7 +4,7 @@ spring:
 
 ---
 server:
-  port: 8080 # 监听端口,-1 表示完全关闭 HTTP 端点，0 表示随机获取一个未使用的端口，
+  port: 8888 # 监听端口,-1 表示完全关闭 HTTP 端点，0 表示随机获取一个未使用的端口，
   servlet:
     session:
       timeout: 30m # session 超时时间
@@ -12,10 +12,10 @@ server:
     max-threads: 800
     uri-encoding: UTF-8
   # 配置 SSL 认证
- # ssl:
- #   key-store:
- #   key-store-password:
- #   key-password:
+  ssl:
+    key-store: classpath:public/tomcat.keystore
+    key-store-password: 123456
+    key-password: 123456
 spring:
   profiles: development
   # Spring 的配置定义
@@ -133,6 +133,6 @@ logging:
 # 一个YAML文件实际上是一系列以---线分割的文档，每个文档都被单独解析为一个平坦的Map。
 ---
 server:
-     port: 8888
+     port: 8080
 spring:
   profiles: test

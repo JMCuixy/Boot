@@ -1,5 +1,8 @@
 package com.example.entity;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "user")
 public class User {
     private String uuid;
     private String name;
