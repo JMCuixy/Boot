@@ -1,5 +1,6 @@
 package com.example.web;
 
+import com.example.bean.PageBean;
 import com.example.entity.User;
 import com.example.service.UserSercice;
 import com.github.pagehelper.PageHelper;
@@ -56,7 +57,7 @@ public class UserController {
 
     @RequestMapping(value = "/listUser", method = RequestMethod.GET)
     @ApiOperation(value = "用户列表", notes = "用户列表", httpMethod = "GET", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public List<User> listUser() {
+    public PageBean<User> listUser() {
         //假设是前端传入的分页参数
         int currentPage = 1;
         int pageSize = 10;

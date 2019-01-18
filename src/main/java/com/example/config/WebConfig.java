@@ -19,7 +19,7 @@ public class WebConfig implements WebMvcConfigurer {
     /**
      * -- 配置跨域资源共享 --
      * -- 之后再在 controller 方法上注解 @CrossOrigin --
-     * 跨域资源共享（CORS）是一个大多数浏览器都实现了的W3C标准，它允许你以灵活的方式指定跨域请求如何被授权，而不是采用那些不安全，性能低的方式，比如IFRAME或JSONP
+     * 跨域资源共享（CORS）是一个大多数浏览器都实现了的W3C标准，它允许你以灵活的方式指定跨域请求如何被授权，而不是采用那些不安全，性能低的方式，比如 IFRAME或JSONP
      *
      * @return
      */
