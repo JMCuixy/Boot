@@ -16,7 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.ArrayList;
 
 /**
- * Api 接口访问地址：http://localhost:8080/public/swagger/index.html
+ * Api 接口访问地址：http://localhost:8080/swagger-ui.html
  */
 @Configuration
 @EnableSwagger2
