@@ -1,6 +1,12 @@
 package com.example.entity;
 
+import com.example.base.DateJsonDeserializer;
+import com.example.base.DateJsonSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Date;
 
 @XmlRootElement(name = "user")
 public class User {
@@ -9,6 +15,10 @@ public class User {
     private String mobile;
     private Integer age;
     private Integer sex;
+
+    @JsonSerialize(using = DateJsonSerializer.class)
+    @JsonDeserialize(using = DateJsonDeserializer.class)
+    private Date birthDay;
 
     public User() {
 
@@ -60,6 +70,14 @@ public class User {
 
     public void setSex(Integer sex) {
         this.sex = sex;
+    }
+
+    public Date getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
     }
 
     @Override

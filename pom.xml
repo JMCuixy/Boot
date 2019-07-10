@@ -28,6 +28,7 @@
     <!--手动指定 Java 版本，可不添加，使用SpringBoot 默认设置好的-->
     <properties>
         <java.version>1.8</java.version>
+        <skipTests>true</skipTests>
     </properties>
 
 
