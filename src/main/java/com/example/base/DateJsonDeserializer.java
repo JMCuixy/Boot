@@ -1,5 +1,6 @@
 package com.example.base;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
@@ -18,7 +19,7 @@ public class DateJsonDeserializer extends JsonDeserializer<Date> {
     public static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Override
-    public Date deserialize(com.fasterxml.jackson.core.JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+    public Date deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         try {
             if (jsonParser != null && !StringUtils.isEmpty(jsonParser.getText())) {
                 return format.parse(jsonParser.getText());
