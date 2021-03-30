@@ -7,6 +7,8 @@ import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +16,7 @@ import java.io.IOException;
 /**
  * 配置 HTTPS 连接器。使得 Tomcat 允许多个连接器，比如 HTTP 和 HTTPS 连接器，使服务器可以同时支持http和https访问
  */
-//@Configuration
+@Configuration
 public class ServerConfig {
 
     @Bean
@@ -22,6 +24,11 @@ public class ServerConfig {
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
         tomcat.addAdditionalTomcatConnectors(createSslConnector());
         return tomcat;
+    }
+
+    @Bean
+    public PlatformTransactionManager platformTransactionManager() {
+        return new DataSourceTransactionManager();
     }
 
     private Connector createSslConnector() {
